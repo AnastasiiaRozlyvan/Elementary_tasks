@@ -11,11 +11,11 @@ class Fib:
         self.end_of_seq = end_of_seq
         self.start_of_seq = start_of_seq
 
-    def get ( self ) :
+    def get(self):
         fib1, fib2 = 0, 1
-        while fib2 <= self.end_of_seq :
+        while fib2 <= self.end_of_seq:
             fib1, fib2 = fib2, fib1 + fib2
-            if fib1 >= self.start_of_seq :
+            if fib1 >= self.start_of_seq:
                 yield fib1
 
     def print_sequence(self):
@@ -30,8 +30,8 @@ class Fib:
 
 def params_assigned(start_num, end_num):
     try:
-        if int(end_num) > 0 and int(start_num)>0:
-            Fib(int(start_num),int(end_num)).print_sequence()
+        if int(end_num) > 0 and int(start_num) > 0:
+            Fib(int(start_num), int(end_num)).print_sequence()
             print()
             return True
         else:
@@ -46,10 +46,11 @@ def main():
     arg = sys.argv
     if len(arg) <= 2 or not params_assigned(arg[1], arg[2]):
         while True:
-            start_num = input("")
+            start_num = input("Enter the start of sequence: ")
             end_num = input("Enter the boundary of sequence: ")
             if params_assigned(start_num, end_num):
                 break
+
 
 if __name__ == "__main__":
     main()
