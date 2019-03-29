@@ -12,17 +12,18 @@ def file_processing(path):
         k = 0
         f = open(path)
         mode = str(f.readline().strip())
-        for i in range(0, 1000000):
-            ticket = '{:06}'.format(i)
-            if mode == "Moskow":
-                if sum(map(int, ticket[:3])) == sum(map(int, ticket[3:])):
-                        k += 1
-            elif mode == "Piter":
-                if sum(map(int, ticket[0::2])) == sum(map(int, ticket[1::2])):
-                        k += 1
-            else:
-                print("Wrong mode.")
-        print(f'Happy tickets for the method "{mode}" appear in file {k} time(s).')
+        if mode == "Piter" or mode == "Moskow":
+            for i in range(0, 1000000):
+                ticket = '{:06}'.format(i)
+                if mode == "Moskow":
+                    if sum(map(int, ticket[:3])) == sum(map(int, ticket[3:])):
+                            k += 1
+                elif mode == "Piter":
+                    if sum(map(int, ticket[0::2])) == sum(map(int, ticket[1::2])):
+                            k += 1
+        else:
+            print("Wrong mode.")
+        print(f'Happy tickets for the method "{mode}" appear {k} time(s).')
 
 
 def interactive():
@@ -30,7 +31,7 @@ def interactive():
         if is_valid(path):
                 file_processing(path)
         else:
-            print('Path was entered incorrectly.')
+            print("Path was entered incorrectly.")
 
 
 if __name__ == '__main__':
