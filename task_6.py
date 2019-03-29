@@ -30,7 +30,7 @@ def interactive():
         if is_valid(path):
                 file_processing(path)
         else:
-            print("Path was entered incorrectly.")
+            print('Path was entered incorrectly.')
 
 
 if __name__ == '__main__':
