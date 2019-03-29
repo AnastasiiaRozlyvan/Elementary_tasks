@@ -8,29 +8,27 @@ def is_valid(p):
         return True
 
 
-def file_processing(f, mode):
+def file_processing(path):
         k = 0
-        for i in range(1, 1000000):
+        f = open(path)
+        mode = str(f.readline().strip())
+        for i in range(0, 1000000):
             ticket = '{:06}'.format(i)
             if mode == "Moskow":
                 if sum(map(int, ticket[:3])) == sum(map(int, ticket[3:])):
                         k += 1
-            else:
+            elif mode == "Piter":
                 if sum(map(int, ticket[0::2])) == sum(map(int, ticket[1::2])):
                         k += 1
+            else:
+                print("Wrong mode.")
         print(f'Happy tickets for the method "{mode}" appear in file {k} time(s).')
 
 
 def interactive():
         path = input("Path to file: ")
         if is_valid(path):
-            f = open(path)
-            mode = str(f.readline().strip())
-            if mode == "Moskow" or mode == "Piter":
-                file_processing(f, mode)
-            else:
-                print("Wrong mode.")
-
+                file_processing(path)
         else:
             print("Path was entered incorrectly.")
 
@@ -38,12 +36,7 @@ def interactive():
 if __name__ == '__main__':
     values = sys.argv
     if len(values) > 1 and is_valid(values[1]):
-        f = open(values[1])
-        mode = str(f.readline().strip())
-        if mode == "Moskow" or mode == "Piter":
-            file_processing(f, mode)
-        else:
-            print("Wrong mode.")
+        file_processing(values[1])        
     else:
         interactive()
 
