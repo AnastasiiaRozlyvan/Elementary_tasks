@@ -55,7 +55,12 @@ def interactive():
 if __name__ == '__main__':
     values = sys.argv
     if len(values) > 1 and is_valid(values[1]):
-                file_processing(values[1])
+        f = open(values[1])
+        mode = str(f.readline().strip())
+        if mode == "Moskow" or mode == "Piter":
+            file_processing(f, mode)
+        else :
+            print("Wrong mode.")
     else:
         interactive()
 
