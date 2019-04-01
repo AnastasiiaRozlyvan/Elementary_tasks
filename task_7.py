@@ -29,7 +29,7 @@ class Sequence:
 def params_assigned(end_num):
     try:
         if end_num == "":
-            return True
+            exit(0)
         elif int(end_num) > 0:
             Sequence(int(end_num)).print_sequence()
             print()
