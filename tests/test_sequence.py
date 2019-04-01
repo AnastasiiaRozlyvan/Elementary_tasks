@@ -22,5 +22,6 @@ class TestSequence(TestCase):
     def test_params_assigned(self):
         self.assertTrue(t.params_assigned(17))
 
-if __name__ == '__main__' :
+
+if __name__ == '__main__':
     unittest.main()

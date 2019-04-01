@@ -28,7 +28,9 @@ class Sequence:
 
 def params_assigned(end_num):
     try:
-        if int(end_num) > 0:
+        if end_num == "":
+            return True
+        elif int(end_num) > 0:
             Sequence(int(end_num)).print_sequence()
             print()
             return True
