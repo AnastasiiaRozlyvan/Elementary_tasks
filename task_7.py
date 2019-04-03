@@ -2,7 +2,15 @@
 """
 @author: Rozlyvan Anastasiia Dp 158 Py
 """
+
 import sys
+
+info = '''
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~      
+        This program prints sequence of numbers 
+        which squares are less then entered value.
+        Press Enter to exit.
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'''
 
 
 class Sequence:
@@ -35,15 +43,18 @@ def params_are_valid(end_num):
         else:
             raise ValueError
     except ValueError:
-            print("You have entered an incorrect value.")
+            print('''    
+            You have entered an incorrect value.
+            The number must be natural.''')
             return False
 
 
 def main():
     arg = sys.argv
     if len(arg) <= 1 or not params_are_valid(arg[1]):
+        print(info)
         while True:
-            end_num = input("Enter the boundary of sequence: ")
+            end_num = input("Enter value, please: ")
             if params_are_valid(end_num):
                 break
     else:

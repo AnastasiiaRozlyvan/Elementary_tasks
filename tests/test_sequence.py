@@ -1,11 +1,16 @@
 from unittest import TestCase
+import os
+import sys
+path = os.path.dirname(os.getcwd())
+print(path)
+sys.path.append(path)
 import task_7 as t
 
 
 class TestSequence(TestCase):
 
     def test_get(self):
-        self.assertEqual(list(t.Sequence(8).get()), list((x for x in [1,2])))
+        self.assertEqual(list(t.Sequence(8).get()), list((x for x in [1, 2])))
 
     def test_print_sequence(self):
         self.assertEqual(t.Sequence(8).print_sequence(), None)
