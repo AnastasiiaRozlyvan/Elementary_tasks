@@ -26,13 +26,11 @@ class Sequence:
                 print(f', {i}', end="")
 
 
-def params_assigned(end_num):
+def params_are_valid(end_num):
     try:
         if end_num == "":
             exit(0)
         elif int(end_num) > 0:
-            Sequence(int(end_num)).print_sequence()
-            print()
             return True
         else:
             raise ValueError
@@ -42,13 +40,16 @@ def params_assigned(end_num):
 
 
 def main():
-
     arg = sys.argv
-    if len(arg) <= 1 or not params_assigned(arg[1]):
+    if len(arg) <= 1 or not params_are_valid(arg[1]):
         while True:
             end_num = input("Enter the boundary of sequence: ")
-            if params_assigned(end_num):
+            if params_are_valid(end_num):
                 break
+    else:
+        end_num = arg[1]
+    Sequence(int(end_num)).print_sequence()
+    print()
 
 
 if __name__ == "__main__":
